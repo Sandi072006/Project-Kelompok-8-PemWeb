@@ -1,0 +1,332 @@
+/* =========================
+   ROOT / VARIABLE
+========================= */
+:root {
+    --bg: #f3f4f6;
+    --white: #ffffff;
+    --dark: #0f172a;
+    --gray: #6b7280;
+    --light-gray: #e5e7eb;
+
+    --primary: #10b981;
+    --blue: #3b82f6;
+    --orange: #f59e0b;
+    --danger: #ef4444;
+
+    --radius: 10px;
+    --shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: #111827;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    background: var(--dark);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h2 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.logo p {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 25px;
+}
+
+.menu a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+    color: #cbd5e1;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    background: #1e293b;
+}
+
+.menu a.active {
+    background: var(--primary);
+    color: white;
+}
+
+.user-box {
+    margin-top: auto;
+    background: #1e293b;
+    padding: 12px;
+    border-radius: var(--radius);
+    font-size: 12px;
+}
+
+.logout {
+    margin-top: 10px;
+    background: var(--danger);
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.logout:hover {
+    opacity: 0.9;
+}
+
+/* =========================
+   MAIN
+========================= */
+.main {
+    padding: 25px;
+}
+
+/* HEADER */
+.topbar {
+    font-size: 12px;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+.status {
+    color: var(--primary);
+}
+
+/* TITLE */
+h1 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+/* =========================
+   CARDS
+========================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: var(--white);
+    padding: 15px;
+    border-radius: var(--radius);
+    border-left: 5px solid transparent;
+    box-shadow: var(--shadow);
+}
+
+.card p {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+.card h2 {
+    margin: 6px 0;
+    font-size: 20px;
+}
+
+.card span {
+    font-size: 12px;
+}
+
+/* COLOR VARIANTS */
+.card.green { border-color: var(--primary); }
+.card.blue { border-color: var(--blue); }
+.card.gray { border-color: #9ca3af; }
+.card.orange { border-color: var(--orange); }
+
+/* =========================
+   BOX / CONTAINER
+========================= */
+
+.box h3 {
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+/* =========================
+   BOTTOM GRID
+========================= */
+.bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   TABLE
+========================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th {
+    text-align: left;
+    color: var(--gray);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+td {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+tr:hover {
+    background: #f9fafb;
+}
+
+/* =========================
+   BADGE
+========================= */
+.badge {
+    background: var(--orange);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+.empty {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* BUTTON VARIANTS */
+.btn.primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn.primary:hover {
+    opacity: 0.9;
+}
+
+.btn.gray {
+    background: var(--light-gray);
+}
+
+.btn.danger {
+    background: var(--danger);
+    color: white;
+}
+
+/* =========================
+   FORM
+========================= */
+.form-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-box label {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.form-box input {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid var(--light-gray);
+    border-radius: 6px;
+}
+
+/* =========================
+   DETAIL
+========================= */
+.detail-box p {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.action {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* =========================
+   LINKS
+========================= */
+.link {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* ==== FIX HEADER BARANG ==== */
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-flex .btn {
+    margin-top: 0;
+}
+
+.box {
+    margin-top: 10px;
+}
