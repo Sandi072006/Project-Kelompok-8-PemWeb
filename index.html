@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Petugas</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="layout">
+    
+<!-- side -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>StockMate</h2>
+            <p>Smart Supplier System</p>
+        </div>
+        <nav class="menu">
+            <a class="active">Dashboard</a>
+            <a href="pages/barang/index.html">Data Barang</a>
+            <a href="pages/supplier/index.html">Supplier</a>
+            <a href="pages/pemasokan/index.html">Pemasokan</a>
+        </nav>
+        <div class="user-box">
+            <p>Logged in as</p>
+            <h4>Petugas Gudang</h4>
+            <span>Petugas</span>
+        </div>
+        <button class="logout">Logout</button>
+    </aside>
+
+ <!-- MAIN -->
+    <main class="main">
+        <div class="topbar">
+            <span class="status">● System Active</span>
+        </div>
+        <h1>Dashboard</h1>
+        <p class="subtitle">Ringkasan sistem manajemen stok</p>
+        <div class="cards">
+            <div class="card green">
+                <p>Total Supplier</p>
+                <h2>3</h2>
+                <span>Supplier terdaftar</span>
+            </div>
+            <div class="card blue">
+                <p>Total Barang</p>
+                <h2>3</h2>
+                <span>Item produk</span>
+            </div>
+            <div class="card gray">
+                <p>Total Pemasokan</p>
+                <h2>0</h2>
+                <span>Transaksi tercatat</span>
+            </div>
+            <div class="card orange">
+                <p>Stok Rendah</p>
+                <h2>1</h2>
+                <span>Perlu restock</span>
+            </div>
+        </div>
+
+ <!-- bottom -->
+        <div class="bottom">
+            <div class="box">
+                <h3>Barang Stok Rendah</h3>
+                <table>
+                    <tr>
+                        <th>Barang</th>
+                        <th>Stok</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>Minyak Goreng 2L</td>
+                        <td>30 botol</td>
+                        <td><span class="badge">Stok Rendah</span></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="box">
+                <h3>Pemasokan Terbaru</h3>
+                <p class="empty">Belum ada pemasokan</p>
+            </div>
+
+        </div>
+        <h3>Quick Actions</h3>
+        <a href="pages/pemasokan/index.html" class="btn primary">+ Tambah Pemasokan</a>
+    </main>
+</div>
+
+</body>
+</html>
