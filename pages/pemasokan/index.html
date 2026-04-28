@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Penerimaan Barang</title>
+  <link rel="stylesheet" href="../../assets/css/pemasokan.css">
+  <link rel="stylesheet" href="../../assets/css/sidebar.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <aside class="sidebar">
+    <div class="logo">
+        <h2>StockMate</h2>
+        <p>Smart Supplier System</p>
+    </div>
+
+    <nav class="menu">
+        <a href="../../index.html">Dashboard</a>
+        <a href="pages/barang/index.html">Data Barang</a>
+        <a href="pages/supplier/index.html">Supplier</a>
+        <a href="pages/penerimaanbarang/index.html">Penerimaan Barang</a>
+    </nav>
+
+    <div class="user-box">
+        <p>Logged in as</p>
+        <h4>Petugas Gudang</h4>
+        <span>Petugas</span>
+    </div>
+
+    <button class="logout">Logout</button>
+</aside>
+
+
+  <main class="main">
+    
+    <div class="topbar">
+      <span class="status">● System Active</span>
+    </div>
+
+    <div class="header">
+      <div>
+        <h1>Manajemen Pemasokan</h1>
+        <p>Kelola data pemasokan barang</p>
+      </div>
+      <a href="#popup" class="btn-add">+ Tambah Pemasokan</a>
+    </div>
+
+    <div class="card">
+      <h3>Riwayat Pemasokan</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Tanggal</th>
+            <th>Supplier</th>
+            <th>Barang</th>
+            <th>Jumlah</th>
+            <th>Catatan</th>
+            <th>Petugas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="6" class="empty">
+              Belum ada data pemasokan
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </main>
+
+</div>
+
+<div id="popup" class="modal">
+  <div class="modal-box">
+
+    <a href="#" class="close">&times;</a>
+
+    <h2>Tambah Pemasokan Baru</h2>
+    <p>Catat pemasokan barang dari supplier</p>
+
+    <div class="form-group">
+      <label>Supplier</label>
+      <select>
+        <option>Pilih supplier</option>
+        <option>PT Sumber Makmur</option>
+    <option>CV Berkah Jaya</option>
+    <option>Toko Sejahtera</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Barang</label>
+      <select>
+        <option>Pilih barang</option>
+        <option>Minyak Goreng</option>
+    <option>Beras</option>
+    <option>Sarden</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Jumlah</label>
+      <input type="number" placeholder="Masukkan jumlah">
+    </div>
+
+    <div class="form-group">
+      <label>Catatan (Opsional)</label>
+      <input type="text" placeholder="Tambahkan catatan">
+    </div>
+
+    <button class="btn-add">Simpan Pemasokan</button>
+
+  </div>
+</div>
+
+</body>
+</html>
