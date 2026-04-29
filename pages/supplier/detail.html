@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Supplier</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/supplier.css">
+</head>
+<body>
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>StockMate</h2>
+                <p>Smart Supplier System</p>
+            </div>
+
+            <nav class="menu">
+                <a href="../../index.html">Dashboard</a>
+                <a href="../barang/index.html">Data Barang</a>
+                <a href="index.html" class="active">Supplier</a>
+                <a href="../pemasokan/index.html">Pemasokan</a>
+            </nav>
+
+            <div class="user-box">
+                <p>Logged in as</p>
+                <h4>Petugas Gudang</h4>
+                <span>Petugas</span>
+            </div>
+            <button class="logout">Logout</button>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <div class="topbar">
+                <span class="status-dot"></span>
+                <span>System Active</span>
+            </div>
+
+            <!-- CONTENT -->
+            <div class="content">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <div class="breadcrumb">
+                            <a href="index.html">Supplier</a>
+                            <span>/</span>
+                            <span>Detail Supplier</span>
+                        </div>
+                        <h1>Detail Supplier</h1>
+                        <p>Tambah atau edit data supplier pemasok</p>
+                    </div>
+                    <a href="index.html" class="btn-secondary">Kembali</a>
+                </div>
+
+                <!-- FORM CARD -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Informasi Supplier</h3>
+                        <p>Lengkapi semua data supplier di bawah ini</p>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="form-grid">
+
+                            <!-- Nama Supplier -->
+                            <div class="form-group">
+                                <label for="nama">Nama Supplier</label>
+                                <input
+                                    type="text"
+                                    id="nama"
+                                    name="nama"
+                                    placeholder="cth. Budi Santoso"
+                                />
+                            </div>
+
+                            <!-- Perusahaan -->
+                            <div class="form-group">
+                                <label for="perusahaan">Perusahaan</label>
+                                <input
+                                    type="text"
+                                    id="perusahaan"
+                                    name="perusahaan"
+                                    placeholder="cth. PT Maju Bersama"
+                                />
+                            </div>
+
+                            <!-- Kontak -->
+                            <div class="form-group">
+                                <label for="kontak">Nomor Kontak</label>
+                                <input
+                                    type="text"
+                                    id="kontak"
+                                    name="kontak"
+                                    placeholder="cth. 08123456789"
+                                />
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="cth. budi@mail.com"
+                                />
+                            </div>
+
+                            <!-- Alamat -->
+                            <div class="form-group form-full">
+                                <label for="alamat">Alamat Lengkap</label>
+                                <textarea
+                                    id="alamat"
+                                    name="alamat"
+                                    rows="3"
+                                    placeholder="cth. Jl. Merdeka No.1, Jakarta Pusat, DKI Jakarta"
+                                ></textarea>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select id="status" name="status">
+                                    <option value="">-- Pilih Status --</option>
+                                    <option value="aktif">Aktif</option>
+                                    <option value="nonaktif">Nonaktif</option>
+                                </select>
+                            </div>
+
+                            <!-- Catatan -->
+                            <div class="form-group">
+                                <label for="catatan">Catatan <span class="label-optional">(opsional)</span></label>
+                                <input
+                                    type="text"
+                                    id="catatan"
+                                    name="catatan"
+                                    placeholder="cth. Supplier prioritas"
+                                />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- FORM FOOTER -->
+                    <div class="card-footer">
+                        <a href="index.html" class="btn-secondary">Batal</a>
+                        <button type="submit" class="btn-primary">Simpan Data</button>
+                    </div>
+                </div>
+                <!-- /FORM CARD -->
+
+            </div>
+            <!-- /CONTENT -->
+
+        </main>
+
+    </div>
+</body>
+</html>

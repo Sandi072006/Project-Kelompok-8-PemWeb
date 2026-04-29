@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier</title>
+    <link rel="stylesheet" href="../../assets/css/supplier.css">
+</head>
+<body>
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>StockMate</h2>
+                <p>Smart Supplier System</p>
+            </div>
+
+            <nav class="menu">
+                <a href="../../index.html">Dashboard</a>
+                <a href="../barang/index.html">Data Barang</a>
+                <a href="#" class="active">Supplier</a>
+                <a href="../pemasokan/index.html">Pemasokan</a>
+            </nav>
+
+            <div class="user-box">
+                <p>Logged in as</p>
+                <h4>Petugas Gudang</h4>
+                <span>Petugas</span>
+            </div>
+            <button class="logout">Logout</button>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR -->
+            <div class="topbar">
+                <span class="status-dot"></span>
+                <span>System Active</span>
+            </div>
+
+            <!-- PAGE CONTENT -->
+            <div class="content">
+
+                <!-- PAGE HEADER -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <h1>Manajemen Supplier</h1>
+                        <p>Kelola data supplier pemasok</p>
+                    </div>
+                    <a href="detail.html" class="btn-primary">Tambah Supplier</a>
+                </div>
+
+                <!-- CARD TABLE -->
+                <div class="card">
+
+                    <!-- TOOLBAR -->
+                    <div class="toolbar">
+                        <div class="search-box">
+                            <input
+                                type="text"
+                                id="searchInput"
+                                class="search-input"
+                                placeholder="Cari supplier, perusahaan, atau email..."
+                                oninput="filterTable()"
+                            />
+                        </div>
+                        <select class="select-filter" id="statusFilter" onchange="filterTable()">
+                            <option value="">Semua Status</option>
+                            <option value="aktif">Aktif</option>
+                            <option value="nonaktif">Nonaktif</option>
+                        </select>
+                    </div>
+
+                    <!-- TABLE -->
+                    <div class="table-wrap">
+                        <table class="table" id="supplierTable">
+                            <thead>
+                                <tr>
+                                    <th>Nama Supplier</th>
+                                    <th>Perusahaan</th>
+                                    <th>Kontak</th>
+                                    <th>Email</th>
+                                    <th>Alamat</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <td><strong>Sandi Zuliansyah</strong></td>
+                                    <td>PT Maju Tak Gentar</td>
+                                    <td>08123456789</td>
+                                    <td>sandi@majutagentar.com</td>
+                                    <td>Jl. Merdeka No.1, Jakarta</td>
+                                    <td><span class="badge aktif">Aktif</span></td>
+                                    <td>
+                                        <div style="display:flex; gap:6px;">
+                                            <a href="detail.html" class="btn-edit">Edit</a>
+                                            <button class="btn-delete">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Siti Rahayu</strong></td>
+                                    <td>CV Sumber Rejeki</td>
+                                    <td>08234567890</td>
+                                    <td>siti@sumberrejeki.com</td>
+                                    <td>Jl. Sudirman No.45, Bandung</td>
+                                    <td><span class="badge aktif">Aktif</span></td>
+                                    <td>
+                                        <div style="display:flex; gap:6px;">
+                                            <a href="detail.html" class="btn-edit">Edit</a>
+                                            <button class="btn-delete">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ahmad Fauzi</strong></td>
+                                    <td>UD Karya Mandiri</td>
+                                    <td>08345678901</td>
+                                    <td>ahmad@karyamandiri.com</td>
+                                    <td>Jl. Ahmad Yani No.12, Surabaya</td>
+                                    <td><span class="badge nonaktif">Nonaktif</span></td>
+                                    <td>
+                                        <div style="display:flex; gap:6px;">
+                                            <a href="detail.html" class="btn-edit">Edit</a>
+                                            <button class="btn-delete">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Dewi Lestari</strong></td>
+                                    <td>PT Cahaya Nusantara</td>
+                                    <td>08456789012</td>
+                                    <td>dewi@cahayanus.com</td>
+                                    <td>Jl. Diponegoro No.7, Semarang</td>
+                                    <td><span class="badge aktif">Aktif</span></td>
+                                    <td>
+                                        <div style="display:flex; gap:6px;">
+                                            <a href="detail.html" class="btn-edit">Edit</a>
+                                            <button class="btn-delete">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Riko Pratama</strong></td>
+                                    <td>CV Berkah Jaya</td>
+                                    <td>08567890123</td>
+                                    <td>riko@berkahjaya.com</td>
+                                    <td>Jl. Gatot Subroto No.33, Medan</td>
+                                    <td><span class="badge nonaktif">Nonaktif</span></td>
+                                    <td>
+                                        <div style="display:flex; gap:6px;">
+                                            <a href="detail.html" class="btn-edit">Edit</a>
+                                            <button class="btn-delete">Hapus</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <!-- /CARD -->
+
+            </div>
+            <!-- /CONTENT -->
+
+        </main>
+        <!-- /MAIN CONTENT -->
+
+    </div>
+    <!-- /LAYOUT -->
+
+    <!-- ══ MODAL TAMBAH / EDIT SUPPLIER ══ -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Tambah Supplier</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nama Supplier</label>
+                    <input type="text" id="f_nama" placeholder="cth. Budi Santoso" />
+                </div>
+                <div class="form-group">
+                    <label>Perusahaan</label>
+                    <input type="text" id="f_perusahaan" placeholder="cth. PT Maju Bersama" />
+                </div>
+                <div class="form-group">
+                    <label>Kontak</label>
+                    <input type="text" id="f_kontak" placeholder="cth. 08123456789" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="f_email" placeholder="cth. budi@mail.com" />
+                </div>
+                <div class="form-group form-full">
+                    <label>Alamat</label>
+                    <input type="text" id="f_alamat" placeholder="cth. Jl. Merdeka No.1, Jakarta" />
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="f_status">
+                        <option value="aktif">Aktif</option>
+                        <option value="nonaktif">Nonaktif</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal()">Batal</button>
+                <button class="btn-primary" onclick="saveSupplier()">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
