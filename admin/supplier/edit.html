@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Supplier — Admin StockMate</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>StockMate</h2>
+            <p>Smart Supplier System</p>
+        </div>
+        <nav class="menu">
+            <a href="../dashboard/index.html">Dashboard</a>
+            <a href="../barang/index.html">Data Barang</a>
+            <a href="index.html" class="active">Supplier</a>
+            <a href="../pemasokan/index.html">Pemasokan</a>
+            <a href="../laporan/laporan.html">Laporan</a>
+        </nav>
+        <div class="user-box">
+            <p>Logged in as</p>
+            <h4>Admin</h4>
+            <span>Administrator</span>
+        </div>
+        <a href="../../login.html" class="logout">Logout</a>
+    </aside>
+
+    <main class="main-content">
+        <div class="topbar">
+            <div class="topbar-left">
+                <span class="status-dot"></span>
+                <span class="status-label">System Active</span>
+            </div>
+            <div class="topbar-right">
+                <span class="topbar-date">Sabtu, 10 Mei 2026</span>
+                <div class="topbar-divider"></div>
+                <div class="topbar-user">
+                    <div class="topbar-avatar">A</div>
+                    <div class="topbar-user-info">
+                        <div class="topbar-user-name">Admin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="page-header">
+                <div class="page-title">
+                    <div class="breadcrumb">
+                        <a href="index.html">Supplier</a>
+                        <span>›</span>
+                        <span>Edit Supplier</span>
+                    </div>
+                    <h1>Edit Supplier</h1>
+                    <p>Ubah data supplier yang sudah ada</p>
+                </div>
+                <a href="index.html" class="btn gray">Kembali</a>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Form Edit Supplier</h3>
+                    <p>Field sudah terisi otomatis dari data yang dipilih</p>
+                </div>
+                <div class="card-body">
+                    <form action="index.html" method="get">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Nama Penanggung Jawab</label>
+                                <input type="text" value="Sandi Zuliansyah" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Perusahaan</label>
+                                <input type="text" value="PT Maju Tak Gentar" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Nomor Telepon</label>
+                                <input type="tel" value="081234567890" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="sandi@majutakgentar.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Kategori Produk</label>
+                                <select>
+                                    <option value="">-- Pilih Kategori --</option>
+                                    <option selected>Makanan</option>
+                                    <option>Minuman</option>
+                                    <option>Kebersihan</option>
+                                    <option>Bumbu &amp; Rempah</option>
+                                    <option>Snack</option>
+                                    <option>Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select>
+                                    <option value="aktif" selected>Aktif</option>
+                                    <option value="nonaktif">Nonaktif</option>
+                                </select>
+                            </div>
+                            <div class="form-group form-full">
+                                <label>Alamat</label>
+                                <input type="text" value="Jl. Merdeka No.1, Jakarta">
+                            </div>
+                            <div class="form-group form-full">
+                                <label>Catatan <span class="label-optional">(opsional)</span></label>
+                                <textarea rows="3">Supplier utama untuk kebutuhan bahan makanan pokok.</textarea>
+                            </div>
+                        </div>
+                        <div style="padding:20px 0 0; border-top:1px solid #e2e8f0; margin-top:20px; display:flex; justify-content:flex-end; gap:10px;">
+                            <a href="index.html" class="btn-secondary">Batal</a>
+                            <button type="submit" class="btn-primary">Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+<footer>
+    <p>&copy; 2026 StockMate</p>
+</footer>
+</html>

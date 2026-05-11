@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan — Admin StockMate</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>StockMate</h2>
+            <p>Smart Supplier System</p>
+        </div>
+        <nav class="menu">
+            <a href="../dashboard/index.html">Dashboard</a>
+            <a href="../barang/index.html">Data Barang</a>
+            <a href="../supplier/index.html">Supplier</a>
+            <a href="../pemasokan/index.html">Pemasokan</a>
+            <a href="laporan.html" class="active">Laporan</a>
+        </nav>
+        <div class="user-box">
+            <p>Logged in as</p>
+            <h4>Admin</h4>
+            <span>Administrator</span>
+        </div>
+        <a href="../../login.html" class="logout">Logout</a>
+    </aside>
+
+    <main class="main-content">
+        <div class="topbar">
+            <div class="topbar-left">
+                <span class="status-dot"></span>
+                <span class="status-label">System Active</span>
+            </div>
+            <div class="topbar-right">
+                <span class="topbar-date">Sabtu, 10 Mei 2026</span>
+                <div class="topbar-divider"></div>
+                <div class="topbar-user">
+                    <div class="topbar-avatar">A</div>
+                    <div class="topbar-user-info">
+                        <div class="topbar-user-name">Admin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Laporan</h1>
+                    <p>Rekap data stok, supplier, dan pemasokan</p>
+                </div>
+            </div>
+
+            <!-- RINGKASAN ANGKA -->
+            <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+
+                <div class="stat-card">
+                    <p>Total Nilai Stok</p>
+                    <h2>Rp 0</h2>
+                    <span>Estimasi nilai inventaris</span>
+                </div>
+            
+                <div class="stat-card">
+                    <p>Total Pemasokan</p>
+                    <h2>0</h2>
+                    <span>Transaksi tercatat</span>
+                </div>
+            
+                <div class="stat-card">
+                    <p>Supplier Aktif</p>
+                    <h2>3</h2>
+                    <span>Dari 5 supplier terdaftar</span>
+                </div>
+            
+                <div class="stat-card">
+                    <p>Barang Stok Rendah</p>
+                    <h2>3</h2>
+                    <span>Perlu restock segera</span>
+                </div>
+            
+                <div class="stat-card">
+                    <p>Total Jenis Barang</p>
+                    <h2>14</h2>
+                    <span>Item terdaftar di sistem</span>
+                </div>
+            
+                <div class="stat-card">
+                    <p>Barang Habis</p>
+                    <h2>1</h2>
+                    <span>Stok = 0</span>
+                </div>
+            
+            </div>
+
+            <!-- KONDISI STOK + TABEL STOK RENDAH -->
+            <div class="lap-bottom">
+                <!-- Bar chart kondisi stok -->
+                <div class="box">
+                    <div class="section-title">Kondisi Stok Seluruh Barang</div>
+                    <div>
+                        <div class="bar-meta"><span class="bar-name">Air Mineral 600ml</span><span class="bar-count">300 botol</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Indomie Goreng</span><span class="bar-count">200 pcs</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:67%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Beras Premium 5kg</span><span class="bar-count">150 pcs</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Chitato Sapi Panggang</span><span class="bar-count">120 pcs</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Gula Pasir 1kg</span><span class="bar-count">110 pcs</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:37%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Teh Celup 25 Pcs</span><span class="bar-count">90 kotak</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Tepung Terigu 1kg</span><span class="bar-count">85 pcs</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Kecap Manis 220ml</span><span class="bar-count">75 botol</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:25%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Shampo 170ml</span><span class="bar-count">60 botol</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Deterjen Bubuk 1kg</span><span class="bar-count">55 pcs</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:18%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Minyak Goreng 2L</span><span class="bar-count">30 botol</span></div>
+                        <div class="bar-track"><div class="bar-fill low" style="width:10%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Sabun Mandi Batang</span><span class="bar-count">25 pcs</span></div>
+                        <div class="bar-track"><div class="bar-fill low" style="width:8%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Saus Sambal 340ml</span><span class="bar-count">18 botol</span></div>
+                        <div class="bar-track"><div class="bar-fill mid" style="width:6%"></div></div>
+
+                        <div class="bar-meta"><span class="bar-name">Susu UHT Full Cream 1L</span><span class="bar-count">Habis</span></div>
+                        <div class="bar-track"><div class="bar-fill zero"></div></div>
+                    </div>
+                </div>
+
+                <!-- Tabel stok rendah & pemasokan -->
+                <div style="display:flex;flex-direction:column;gap:16px;">
+                    <!-- Stok perlu perhatian -->
+                    <div class="box">
+                        <div class="section-title">Barang Perlu Perhatian</div>
+                        <div class="table-wrap">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Barang</th>
+                                        <th>Stok</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Minyak Goreng 2L</td>
+                                        <td>30 botol</td>
+                                        <td><img src="../../assets/img/warning.svg" style="width:22px;height:22px;" alt="Stock Rendah"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sabun Mandi Batang</td>
+                                        <td>25 pcs</td>
+                                        <td><img src="../../assets/img/warning.svg" style="width:22px;height:22px;" alt="Stock Rendah"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Saus Sambal 340ml</td>
+                                        <td>18 botol</td>
+                                        <td><img src="../../assets/img/warning.svg" style="width:22px;height:22px;" alt="Stock Rendah"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Susu UHT Full Cream 1L</td>
+                                        <td>0 karton</td>
+                                        <td><img src="../../assets/img/wrong.svg" style="width:22px;height:22px;" alt="Habis"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pemasokan -->
+                    <div class="box">
+                        <div class="section-title">Riwayat Pemasokan</div>
+                        <p class="empty">Belum ada pemasokan tercatat</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabel semua supplier -->
+            <div class="box" style="margin-top:16px;">
+                <div class="section-title">Rekap Supplier</div>
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nama Perusahaan</th>
+                                <th>Penanggung Jawab</th>
+                                <th>Telepon</th>
+                                <th>Kategori</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>PT Maju Tak Gentar</td>
+                                <td>Sandi Zuliansyah</td>
+                                <td>081234567890</td>
+                                <td>Makanan</td>
+                                <td><img src="../../assets/img/check.svg" style="width:22px;height:22px;" alt="Aktif"></td>
+                            </tr>
+                            <tr>
+                                <td>CV Sumber Rejeki</td>
+                                <td>Siti Rahayu</td>
+                                <td>082233445566</td>
+                                <td>Makanan</td>
+                                <td><img src="../../assets/img/check.svg" style="width:22px;height:22px;" alt="Aktif"></td>
+                            </tr>
+                            <tr>
+                                <td>UD Karya Mandiri</td>
+                                <td>Ahmad Fauzi</td>
+                                <td>083344556677</td>
+                                <td>Sembako</td>
+                                <td><img src="../../assets/img/wrong.svg" style="width:22px;height:22px;" alt="Nonaktif"></td>
+                            </tr>
+                            <tr>
+                                <td>PT Cahaya Nusantara</td>
+                                <td>Dewi Lestari</td>
+                                <td>084455667788</td>
+                                <td>Kebersihan</td>
+                                <td><img src="../../assets/img/check.svg" style="width:22px;height:22px;" alt="Aktif"></td>
+                            </tr>
+                            <tr>
+                                <td>CV Berkah Jaya</td>
+                                <td>Riko Pratama</td>
+                                <td>085566778899</td>
+                                <td>Minuman</td>
+                                <td><img src="../../assets/img/wrong.svg" style="width:22px;height:22px;" alt="Nonaktif"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+</body>
+<footer>
+    <p>&copy; 2026 StockMate</p>
+</footer>
+</html>
