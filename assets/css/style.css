@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap');
 
-/* ========================
-   1. ROOT / VARIABLES
-======================== */
 :root {
     --bg: #f9f9f9;
     --white: #ffffff;
@@ -29,9 +26,6 @@
     --font-body: 'DM Sans', sans-serif;
 }
 
-/* ========================
-   2. RESET
-======================== */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -46,17 +40,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ========================
-   3. LAYOUT
-======================== */
 .layout {
     display: flex;
     min-height: 100vh;
 }
-
-/* ========================
-   4. SIDEBAR
-======================== */
 .sidebar {
     width: 248px;
     background: #18181b;
@@ -72,7 +59,6 @@ body {
     overflow: hidden;
 }
 
-/* Radial gradient overlay */
 .sidebar::before {
     content: '';
     position: absolute;
@@ -85,7 +71,6 @@ body {
     z-index: 0;
 }
 
-/* Grid kotak-kotak dekoratif */
 .sidebar::after {
     content: '';
     position: absolute;
@@ -201,9 +186,6 @@ a.logout:hover {
     transform: translateY(-1px);
 }
 
-/* ========================
-   5. MAIN CONTENT AREA
-======================== */
 .main,
 .main-content {
     margin-left: 248px;
@@ -212,10 +194,6 @@ a.logout:hover {
     flex-direction: column;
     min-height: 100vh;
 }
-
-/* ========================
-   6. TOPBAR
-======================== */
 .topbar {
     width: 100%;
     background: var(--white);
@@ -318,9 +296,6 @@ a.logout:hover {
     50%       { box-shadow: 0 0 0 6px rgba(34,197,94,0.05); }
 }
 
-/* ========================
-   7. PAGE CONTENT
-======================== */
 .content {
     max-width: 1280px;
     margin: 0 auto;
@@ -329,9 +304,6 @@ a.logout:hover {
     width: 100%;
 }
 
-/* ========================
-   8. PAGE HEADER / TITLE
-======================== */
 h1 {
     font-family: var(--font-display);
     font-size: 22px;
@@ -398,7 +370,6 @@ h1 {
 .breadcrumb a:hover { text-decoration: underline; }
 .breadcrumb span  { color: #9ca3af; }
 
-/* 9. DASHBOARD STAT CARDS */
 .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -412,8 +383,7 @@ h1 {
     border-radius: var(--radius);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
-    cursor: pointer; /* Bikin kursor berubah jadi tangan biar interaktif */
-    /* Ditambahkan transform & box-shadow di transisi biar pergerakan smooth */
+    cursor: pointer; 
     transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -421,23 +391,17 @@ h1 {
 .stat-card h2   { font-family: var(--font-display); margin: 8px 0 4px; font-size: 30px; font-weight: 800; letter-spacing: -0.5px; transition: color 0.2s ease; }
 .stat-card span { font-size: 12px; color: #9ca3af; transition: color 0.2s ease; }
 
-/* 1. Mengubah background kontainer card, border, dan memberi efek lifting terangkat */
 .stat-card:hover { 
     background: #F45B18; 
-    border-color: #F45B18; /* Garis pinggir abu-abu bawaan ikut hilang melebur jadi oranye */
-    transform: translateY(-4px); /* Card agak naik ke atas pas disentuh kursor */
-    box-shadow: 0 8px 20px rgba(244, 91, 24, 0.25); /* Glow shadow tipis warna oranye */
+    border-color: #F45B18; 
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 20px rgba(244, 91, 24, 0.25); 
 }
-
-/* 2. KUNCI UTAMA: Tembak langsung tag p, h2, dan span-nya biar priority kodenya menang telak */
 .stat-card:hover p,
 .stat-card:hover h2,
 .stat-card:hover span { 
     color: #ffffff !important; 
 }   
-/* ========================
-   10. CARD
-======================== */
 .card {
     background: #fff;
     border: 1px solid var(--border);
@@ -476,9 +440,6 @@ h1 {
     background: #fafbfc;
 }
 
-/* ========================
-   11. TOOLBAR
-======================== */
 .toolbar {
     display: flex;
     flex-wrap: wrap;
@@ -527,9 +488,6 @@ h1 {
     cursor: pointer;
 }
 
-/* ========================
-   12. TABLE
-======================== */
 .table-wrap { overflow-x: auto; }
 
 table,
@@ -568,9 +526,6 @@ tr:hover,
 .table tbody tr:hover { background: #f8fafc; }
 .table tbody tr:last-child { border-bottom: none; }
 
-/* ========================
-   13. BADGE
-======================== */
 .badge {
     display: inline-flex;
     align-items: center;
@@ -589,9 +544,6 @@ tr:hover,
 .badge.nonaktif    { background: #fee2e2; color: #b91c1c; }
 .badge.aman        { background: #dcfce7; color: #15803d; }
 
-/* ========================
-   14. BUTTONS
-======================== */
 .btn {
     padding: 9px 16px;
     border: none;
@@ -694,9 +646,8 @@ tr:hover,
 .btn-edit        { background: #3b82f6; color: #ffffff; border-color: #3b82f6; }
 .btn-edit:hover  { background: #2563eb; border-color: #2563eb; }
 .btn-delete      { background: #fc3131; color: #ffffff; border-color: #dc2626; }
-.btn-delete:hover{ background: #b91c1c; border-color: #b91c1c; }/* ========================
-   15. FORM
-======================== */
+.btn-delete:hover{ background: #b91c1c; border-color: #b91c1c; }
+
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-full { grid-column: 1 / -1; }
 
@@ -744,9 +695,6 @@ tr:hover,
 .form-group textarea { resize: vertical; }
 .label-optional { font-size: 11px; font-weight: 400; color: #9ca3af; text-transform: none; }
 
-/* ========================
-   16. MODAL
-======================== */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -799,7 +747,6 @@ tr:hover,
     border-top: 1px solid var(--border);
 }
 
-/* Modal CSS :target — tanpa JS */
 .modal {
     position: fixed;
     top: 0; left: 0;
@@ -830,9 +777,6 @@ tr:hover,
 .close { float: right; text-decoration: none; font-size: 22px; color: #9ca3af; line-height: 1; transition: color 0.15s ease; }
 .close:hover { color: #111827; }
 
-/* ========================
-   17. DASHBOARD BOTTOM GRID
-======================== */
 .bottom {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -859,8 +803,6 @@ tr:hover,
     letter-spacing: -0.2px;
 }
 
-/* ========================
-   18. MISC / UTILITIES
 ======================== */
 .empty,
 .empty-state {
@@ -883,32 +825,24 @@ tr:hover,
 .detail-box p { margin-bottom: 10px; font-size: 14px; }
 .action { margin-top: 16px; display: flex; gap: 10px; }
 
-/* ========================
-   19. SCROLLBAR
-======================== */
-::-webkit-scrollbar       { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar       { 
+    width: 5px; 
+    height: 5px; 
+}
+::-webkit-scrollbar-track { 
+    background: transparent; 
+}
 ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
 
-/* ========================
-   20. SELECTION
-======================== */
 ::selection { background: var(--primary-glow); color: var(--primary); }
 
-/* ========================
-   21. STATUS ICON
-======================== */
 .status-icon {
-    width: 22px;   /* FIX: was incorrectly 220px in original */
+    width: 22px;  
     height: 22px;
     display: block;
     margin: 0 auto;
 }
-
-/* ========================
-   22. DETAIL PAGE
-======================== */
 .detail-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
 .detail-row   { display: flex; flex-direction: column; gap: 3px; padding: 13px 0; border-bottom: 1px solid #f1f5f9; }
 .detail-row:last-child { border-bottom: none; }
@@ -927,10 +861,6 @@ tr:hover,
     align-items: center;
     gap: 10px;
 }
-
-/* ========================
-   23. DASHBOARD QUICK ACTIONS
-======================== */
 .qa-grid {
     display: flex;
     align-items: center;
@@ -969,9 +899,6 @@ tr:hover,
 .qa-icon svg { width: 22px; height: 22px; stroke: #fff; fill: none; }
 .qa-card:hover .qa-icon { background: #d94e12; transform: scale(1.08); }
 
-/* ========================
-   24. LAPORAN
-======================== */
 .lap-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -999,9 +926,6 @@ tr:hover,
 
 .lap-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-/* ========================
-   25. FOOTER
-======================== */
 footer {
     text-align: center;
     padding: 16px 32px;
@@ -1013,9 +937,6 @@ footer {
     margin-left: 248px;
 }
 
-/* ========================
-   26. RESPONSIVE
-======================== */
 @media (max-width: 900px) {
     .sidebar {
         position: relative;
