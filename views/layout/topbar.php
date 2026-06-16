@@ -1,21 +1,32 @@
+<?php 
+if (isset($_SESSION['nama']) && $_SESSION['nama'] !== '') {
+    $namaTampil = $_SESSION['nama'];
+} elseif (isset($_SESSION['username']) && $_SESSION['username'] !== '') {
+    $namaTampil = $_SESSION['username'];
+} else {
+    $namaTampil = 'User';
+}
+
+$hurufPertama = strtoupper(substr($namaTampil, 0, 1));
+$roleTampil   = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+?>
 <div class="topbar">
     <div class="topbar-left">
-        <span class="status-dot"></span>
-        <span class="status-label">System Active</span>
+        <!-- Status removed -->
     </div>
     <div class="topbar-right">
         <span class="topbar-date"><?= date('l, d F Y') ?></span>
         <div class="topbar-divider"></div>
         <div class="topbar-user">
             <div class="topbar-avatar">
-                <?= strtoupper(substr($_SESSION['nama'] ?? $_SESSION['username'] ?? 'U', 0, 1)) ?>
+                <?= $hurufPertama ?>
             </div>
             <div class="topbar-user-info">
                 <div class="topbar-user-name">
-                    <?= htmlspecialchars($_SESSION['nama'] ?? $_SESSION['username'] ?? 'User') ?>
+                    <?= htmlspecialchars($namaTampil) ?>
                 </div>
                 <div style="font-size:11px;color:#9ca3af;text-transform:capitalize;">
-                    <?= htmlspecialchars($_SESSION['role'] ?? '') ?>
+                    <?= htmlspecialchars($roleTampil) ?>
                 </div>
             </div>
         </div>
