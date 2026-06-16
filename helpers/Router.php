@@ -78,7 +78,7 @@ $routes = [
 
     '/admin/laporan'      => ['LaporanController', 'index'],
 ];
-s
+
 if (array_key_exists($path, $routes)) {
     
     $controllerName = $routes[$path][0]; 
