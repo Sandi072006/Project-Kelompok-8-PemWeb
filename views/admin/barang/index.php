@@ -79,10 +79,10 @@
                         <?php if (!empty($data['barang'])): ?>
                             <?php foreach ($data['barang'] as $barang): ?>
                             <tr>
-                                <td style="padding:12px 12px;font-size:12.5px;"><?= htmlspecialchars($barang['kode']) ?></td>
-                                <td style="padding:12px 12px;font-size:12.5px;"><?= htmlspecialchars($barang['nama']) ?></td>
-                                <td style="padding:12px 12px;font-size:12.5px;"><?= htmlspecialchars($barang['kategori']) ?></td>
-                                <td style="padding:12px 12px;font-size:12.5px;"><?= htmlspecialchars($barang['merek']) ?></td>
+                                <td style="padding:12px 12px;font-size:12.5px;"><?= htmlspecialchars($barang['kode'] ?? '') ?></td>
+                                <td style="padding:12px 12px;font-size:12.5px;"><?= htmlspecialchars($barang['nama'] ?? '') ?></td>
+                                <td style="padding:12px 12px;font-size:12.5px;"><?= htmlspecialchars($barang['kategori'] ?? '') ?></td>
+                                <td style="padding:12px 12px;font-size:12.5px;"><?= htmlspecialchars($barang['merek'] ?? '') ?></td>
                                 <td style="padding:12px 12px;font-size:12.5px;"><?= htmlspecialchars($barang['nama_supplier'] ?? '-') ?></td>
                                 <td style="padding:12px 12px;font-size:12.5px;white-space:nowrap;"><?= $barang['stok'] ?> <?= htmlspecialchars($barang['satuan'] ?? '') ?></td>
                                 <td style="padding:12px 12px;font-size:12.5px;white-space:nowrap;">Rp <?= number_format((float)$barang['harga_beli'], 0, ',', '.') ?></td>
@@ -99,9 +99,8 @@
                                 <td style="padding:12px 12px;">
                                     <div style="display:flex;gap:5px;align-items:center;">
                                         <a href="<?= BASE_URL ?>/admin/barang/detail?id=<?= (int)$barang['id'] ?>" class="link" style="font-size:12.5px;">Lihat</a>
-                                        <a href="#modal-stockout-<?= (int)$barang['id'] ?>" class="btn-secondary" style="font-size:12px;padding:5px 10px;white-space:nowrap;">Stock Out</a>
                                         <a href="<?= BASE_URL ?>/admin/barang/edit?id=<?= (int)$barang['id'] ?>" class="btn-edit" style="font-size:12px;padding:5px 10px;">Edit</a>
-                                        <a href="#modal-hapus-<?= (int)$barang['id'] ?>" class="btn-delete" style="font-size:12px;padding:5px 10px;">Hapus</a>
+                                        <a href="#modal-hapus-<?= (int)$barang['id'] ?>" class="btn-delete" style="font-size:12px;padding:5px 10px;">Nonaktifkan</a>
                                     </div>
                                 </td>
                             </tr>
@@ -114,10 +113,12 @@
                     </div>
             </div>
 
-            <div class="card" style="margin-top:18px;">
-                <div class="page-title" style="margin-bottom:14px;">
-                    <h2 style="font-size:20px;margin:0;">Riwayat Stock Out</h2>
-                    <p style="margin:4px 0 0;color:#6b7280;">Catatan barang yang keluar langsung dari fitur Data Barang</p>
+            <div class="card stockout-card">
+                <div class="stockout-header">
+                    <div>
+                        <h2>Riwayat Stock Out</h2>
+                        <p>Catatan barang yang keluar langsung dari fitur Data Barang</p>
+                    </div>
                 </div>
                 <div class="table-wrap">
                     <table class="table" style="min-width:900px;">
@@ -129,6 +130,7 @@
                                 <th>Jumlah Keluar</th>
                                 <th>Tujuan</th>
                                 <th>Catatan</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -136,14 +138,23 @@
                         <?php if (!empty($data['stock_out'])): ?>
                             <?php foreach ($data['stock_out'] as $row): ?>
                             <tr>
-                                <td><?= htmlspecialchars($row['kode']) ?></td>
+                                <td><?= htmlspecialchars($row['kode'] ?? '') ?></td>
                                 <td><?= htmlspecialchars(date('d-m-Y', strtotime($row['tanggal']))) ?></td>
                                 <td><?= htmlspecialchars(($row['kode_barang'] ?? '-') . ' - ' . ($row['nama_barang'] ?? '-')) ?></td>
                                 <td><?= (int)$row['jumlah'] ?> <?= htmlspecialchars($row['satuan'] ?? '') ?></td>
                                 <td><?= htmlspecialchars($row['tujuan'] ?? '-') ?></td>
                                 <td><?= htmlspecialchars($row['catatan'] ?? '-') ?></td>
                                 <td>
-                                    <a href="<?= BASE_URL ?>/admin/barang/stock-out/hapus?id=<?= (int)$row['id'] ?>" class="btn-delete" onclick="return confirm('Hapus data stock out ini? Stok barang akan dikembalikan.')">Hapus</a>
+                                    <?php if (($row['status'] ?? 'aktif') === 'dibatalkan'): ?>
+                                        <span style="color:#991b1b;background:#fee2e2;padding:4px 8px;border-radius:4px;font-size:12px;">Dibatalkan</span>
+                                    <?php else: ?>
+                                        <span style="color:#166534;background:#dcfce7;padding:4px 8px;border-radius:4px;font-size:12px;">Aktif</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php if (($row['status'] ?? 'aktif') === 'aktif'): ?>
+                                        <a href="<?= BASE_URL ?>/admin/barang/stock-out/batalkan?id=<?= (int)$row['id'] ?>" class="btn-delete" onclick="return confirm('Batalkan data stock out ini? Stok barang akan dikembalikan.')">Batalkan</a>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -164,7 +175,7 @@
     <div class="modal" id="modal-stockout-<?= (int)$barang['id'] ?>">
         <div class="modal-box">
             <a href="#" class="close">&times;</a>
-            <h2>Stock Out Barang</h2>
+            <h2>Kurangi Stok Barang</h2>
             <p>Kurangi stok untuk <strong><?= htmlspecialchars($barang['nama']) ?></strong>. Stok saat ini: <strong><?= (int)$barang['stok'] ?> <?= htmlspecialchars($barang['satuan'] ?? '') ?></strong>.</p>
             <form action="<?= BASE_URL ?>/admin/barang/stock-out/simpan" method="POST" class="form-grid" style="margin-top:14px;">
                 <input type="hidden" name="barang_id" value="<?= (int)$barang['id'] ?>">
@@ -186,7 +197,7 @@
                 </div>
                 <div style="grid-column:1/-1;display:flex;gap:10px;justify-content:flex-end;">
                     <a href="#" class="btn-secondary">Batal</a>
-                    <button type="submit" class="btn-primary">Simpan Stock Out</button>
+                    <button type="submit" class="btn-primary">Simpan Stok Berkurang</button>
                 </div>
             </form>
         </div>
@@ -195,11 +206,11 @@
     <div class="modal" id="modal-hapus-<?= (int)$barang['id'] ?>">
         <div class="modal-box">
             <a href="#" class="close">&times;</a>
-            <h2>Hapus Barang</h2>
-            <p>Yakin ingin menghapus <strong><?= htmlspecialchars($barang['nama']) ?></strong>? Tindakan ini tidak bisa dibatalkan.</p>
+            <h2>Nonaktifkan Barang</h2>
+            <p>Yakin ingin menonaktifkan <strong><?= htmlspecialchars($barang['nama']) ?></strong>? Barang tidak akan dihapus dari sistem namun tidak bisa dipakai untuk transaksi baru.</p>
             <div style="display:flex;gap:10px;justify-content:flex-end;">
                 <a href="#" class="btn-secondary">Batal</a>
-                <a href="<?= BASE_URL ?>/admin/barang/hapus?id=<?= (int)$barang['id'] ?>" class="btn-delete" style="padding:9px 16px;">Ya, Hapus</a>
+                <a href="<?= BASE_URL ?>/admin/barang/hapus?id=<?= (int)$barang['id'] ?>" class="btn-delete" style="padding:9px 16px;">Ya, Nonaktifkan</a>
             </div>
         </div>
     </div>
