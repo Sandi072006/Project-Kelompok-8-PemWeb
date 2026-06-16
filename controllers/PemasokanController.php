@@ -58,7 +58,7 @@ class PemasokanController {
         exit;
     }
     public function batalkan() {
-        AuthController::cekLogin();
+        AuthController::cekAdmin();
         $id = isset($_GET['id']) ? $_GET['id'] : null;
         
         if ($id) {
