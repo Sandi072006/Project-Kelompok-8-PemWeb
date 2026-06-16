@@ -18,7 +18,6 @@
                 </div>
             </div>
 
-            <!-- STAT CARDS -->
             <div class="cards">
                 <div class="stat-card">
                     <p>Total Supplier</p>
@@ -42,7 +41,6 @@
                 </div>
             </div>
 
-            <!-- BOTTOM GRID -->
             <div class="bottom">
                 <div class="box">
                     <h3>Barang Stok Rendah</h3>
@@ -134,7 +132,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="5" style="text-align:center;" class="empty">
+                            <td colspan="4" style="text-align:center;" class="empty">
                                 Belum ada pemasokan
                             </td>
                         </tr>
