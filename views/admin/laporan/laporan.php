@@ -9,6 +9,7 @@ $barangList = Barang::getAll();
 $stokRendah = Barang::getStokRendah();
 $supplierList = Supplier::getAll();
 $pemasokanList = Pemasokan::getAll();
+$stockOutList = StockOut::getAll();
 
 $totalNilaiStok = 0;
 $barangHabis = 0;
@@ -59,7 +60,7 @@ foreach ($supplierList as $s) {
                 </div>
             </div>
 
-            <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="cards" style="grid-template-columns: repeat(4, 1fr);">
 
                 <div class="stat-card">
                     <p>Total Nilai Stok</p>
@@ -71,6 +72,12 @@ foreach ($supplierList as $s) {
                     <p>Total Pemasokan</p>
                     <h2><?= count($pemasokanList) ?></h2>
                     <span>Transaksi tercatat</span>
+                </div>
+
+                <div class="stat-card">
+                    <p>Total Stock Out</p>
+                    <h2><?= count($stockOutList) ?></h2>
+                    <span>Transaksi keluar</span>
                 </div>
 
                 <div class="stat-card">
@@ -129,10 +136,10 @@ foreach ($supplierList as $s) {
 
                                 <div class="bar-meta">
                                     <span class="bar-name">
-                                        <?= htmlspecialchars($barang['nama']) ?>
+                                        <?= htmlspecialchars($barang['nama'] ?? '') ?>
                                     </span>
                                     <span class="bar-count">
-                                        <?= htmlspecialchars($teksStok) ?>
+                                        <?= htmlspecialchars($teksStok ?? '') ?>
                                     </span>
                                 </div>
 
@@ -174,9 +181,9 @@ foreach ($supplierList as $s) {
                                     <?php if (!empty($stokRendah)): ?>
                                         <?php foreach ($stokRendah as $barang): ?>
                                             <tr>
-                                                <td><?= htmlspecialchars($barang['nama']) ?></td>
+                                                <td><?= htmlspecialchars($barang['nama'] ?? '') ?></td>
                                                 <td>
-                                                    <?= htmlspecialchars($barang['stok']) ?>
+                                                    <?= htmlspecialchars($barang['stok'] ?? '') ?>
                                                     <?= htmlspecialchars($barang['satuan'] ?? '') ?>
                                                 </td>
                                                 <td>
@@ -229,17 +236,59 @@ foreach ($supplierList as $s) {
                                     <?php if (!empty($pemasokanList)): ?>
                                         <?php foreach ($pemasokanList as $p): ?>
                                             <tr>
-                                                <td><?= htmlspecialchars($p['kode']) ?></td>
-                                                <td><?= htmlspecialchars($p['nama_barang']) ?></td>
-                                                <td><?= htmlspecialchars($p['nama_supplier']) ?></td>
-                                                <td><?= htmlspecialchars($p['jumlah']) ?></td>
-                                                <td><?= htmlspecialchars($p['tanggal']) ?></td>
+                                                <td><?= htmlspecialchars($p['kode'] ?? '') ?></td>
+                                                <td><?= htmlspecialchars($p['nama_barang'] ?? '') ?></td>
+                                                <td><?= htmlspecialchars($p['nama_supplier'] ?? '') ?></td>
+                                                <td><?= htmlspecialchars($p['jumlah'] ?? '') ?></td>
+                                                <td><?= htmlspecialchars($p['tanggal'] ?? '') ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="5" style="text-align:center;">
                                                 Belum ada pemasokan tercatat
+                                            </td>
+                                        </tr>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="box">
+
+                        <div class="section-title">
+                            Riwayat Stock Out
+                        </div>
+
+                        <div class="table-wrap">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Kode</th>
+                                        <th>Barang</th>
+                                        <th>Jumlah</th>
+                                        <th>Tujuan</th>
+                                        <th>Tanggal</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <?php if (!empty($stockOutList)): ?>
+                                        <?php foreach ($stockOutList as $so): ?>
+                                            <tr>
+                                                <td><?= htmlspecialchars($so['kode'] ?? '') ?></td>
+                                                <td><?= htmlspecialchars($so['nama_barang'] ?? '') ?></td>
+                                                <td><?= htmlspecialchars($so['jumlah'] ?? '') ?></td>
+                                                <td><?= htmlspecialchars($so['tujuan'] ?? '-') ?></td>
+                                                <td><?= htmlspecialchars($so['tanggal'] ?? '') ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="5" style="text-align:center;">
+                                                Belum ada stock out tercatat
                                             </td>
                                         </tr>
                                     <?php endif; ?>
@@ -277,8 +326,8 @@ foreach ($supplierList as $s) {
                             <?php if (!empty($supplierList)): ?>
                                 <?php foreach ($supplierList as $supplier): ?>
                                     <tr>
-                                        <td><?= htmlspecialchars($supplier['perusahaan']) ?></td>
-                                        <td><?= htmlspecialchars($supplier['nama']) ?></td>
+                                        <td><?= htmlspecialchars($supplier['perusahaan'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($supplier['nama'] ?? '') ?></td>
                                         <td><?= htmlspecialchars($supplier['telepon'] ?? '-') ?></td>
                                         <td><?= htmlspecialchars($supplier['kategori'] ?? '-') ?></td>
                                         <td>

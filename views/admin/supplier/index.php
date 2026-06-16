@@ -31,6 +31,17 @@
             </div>
 
             <div class="card">
+                <?php if (!empty($data['supplier_success'])): ?>
+                    <div style="padding:12px;border-radius:10px;background:#dcfce7;color:#166534;margin-bottom:14px;">
+                        <?= htmlspecialchars($data['supplier_success']) ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($data['supplier_error'])): ?>
+                    <div style="padding:12px;border-radius:10px;background:#fee2e2;color:#991b1b;margin-bottom:14px;">
+                        <?= htmlspecialchars($data['supplier_error']) ?>
+                    </div>
+                <?php endif; ?>
+
                 <form class="toolbar" method="GET" action="<?= BASE_URL ?>/admin/supplier">
                     <div class="search-box">
                         <input type="text" name="q" class="search-input" placeholder="Cari supplier, perusahaan, telepon, atau email..." value="<?= htmlspecialchars($data['filters']['q'] ?? '') ?>" />
@@ -63,7 +74,7 @@
                         <?php if (!empty($data['supplier'])): ?>
                             <?php foreach ($data['supplier'] as $supplier): ?>
                             <tr>
-                                <td><strong><?= htmlspecialchars($supplier['nama']) ?></strong></td>
+                                <td><strong><?= htmlspecialchars($supplier['nama'] ?? '') ?></strong></td>
                                 <td><?= htmlspecialchars($supplier['perusahaan'] ?? '-') ?></td>
                                 <td><?= htmlspecialchars($supplier['telepon'] ?? '-') ?></td>
                                 <td><?= htmlspecialchars($supplier['email'] ?? '-') ?></td>
@@ -79,7 +90,7 @@
                                     <div style="display:flex;gap:6px;">
                                         <a href="<?= BASE_URL ?>/admin/supplier/detail?id=<?= (int)$supplier['id'] ?>" class="link">Lihat</a>
                                         <a href="<?= BASE_URL ?>/admin/supplier/edit?id=<?= (int)$supplier['id'] ?>" class="btn-edit">Edit</a>
-                                        <a href="#modal-hapus-<?= (int)$supplier['id'] ?>" class="btn-delete">Hapus</a>
+                                        <a href="#modal-hapus-<?= (int)$supplier['id'] ?>" class="btn-delete">Nonaktifkan</a>
                                     </div>
                                 </td>
                             </tr>
@@ -100,11 +111,11 @@
     <div class="modal" id="modal-hapus-<?= (int)$supplier['id'] ?>">
         <div class="modal-box">
             <a href="#" class="close">&times;</a>
-            <h2>Hapus Supplier</h2>
-            <p>Yakin ingin menghapus <strong><?= htmlspecialchars($supplier['nama']) ?></strong>? Tindakan ini tidak bisa dibatalkan.</p>
+            <h2>Nonaktifkan Supplier</h2>
+            <p>Yakin ingin menonaktifkan <strong><?= htmlspecialchars($supplier['nama']) ?></strong>? Supplier tidak akan dihapus dari sistem namun tidak bisa dipakai untuk transaksi baru.</p>
             <div style="display:flex;gap:10px;justify-content:flex-end;">
                 <a href="#" class="btn-secondary">Batal</a>
-                <a href="<?= BASE_URL ?>/admin/supplier/hapus?id=<?= (int)$supplier['id'] ?>" class="btn-delete" style="padding:9px 16px;">Ya, Hapus</a>
+                <a href="<?= BASE_URL ?>/admin/supplier/hapus?id=<?= (int)$supplier['id'] ?>" class="btn-delete" style="padding:9px 16px;">Ya, Nonaktifkan</a>
             </div>
         </div>
     </div>

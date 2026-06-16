@@ -59,7 +59,7 @@
                         <?php if (!empty($data['supplier'])): ?>
                             <?php foreach ($data['supplier'] as $supplier): ?>
                             <tr>
-                                <td><strong><?= htmlspecialchars($supplier['nama']) ?></strong></td>
+                                <td><strong><?= htmlspecialchars($supplier['nama'] ?? '') ?></strong></td>
                                 <td><?= htmlspecialchars($supplier['perusahaan'] ?? '-') ?></td>
                                 <td><?= htmlspecialchars($supplier['telepon'] ?? '-') ?></td>
                                 <td><?= htmlspecialchars($supplier['email'] ?? '-') ?></td>
