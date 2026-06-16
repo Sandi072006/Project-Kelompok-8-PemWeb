@@ -67,8 +67,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Stok Saat Ini</label>
-                                <input type="number" name="stok" value="<?= (int)($data['barang']['stok'] ?? 0) ?>" min="0" required>
+                                <label>Stok Saat Ini (Hanya via Transaksi)</label>
+                                <input type="number" name="stok" value="<?= (int)($data['barang']['stok'] ?? 0) ?>" readonly style="background-color: #f8fafc; color: #64748b; cursor: not-allowed;">
                             </div>
                             <div class="form-group">
                                 <label>Satuan</label>
