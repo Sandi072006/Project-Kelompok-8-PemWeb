@@ -12,8 +12,18 @@
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h1>Data Pemasokan</h1>
+                    <h1>Data Barang Masuk</h1>
                     <p>Lihat riwayat pemasokan barang</p>
+                </div>
+                <div class="qa-grid">
+                    <a href="<?= BASE_URL ?>/pemasokan/tambah" class="qa-card">
+                        <div class="qa-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </div>
+                        <span>Tambah Pemasokan</span>
+                    </a>
                 </div>
             </div>
 
@@ -46,6 +56,7 @@
                                 <th>Jumlah</th>
                                 <th>Catatan</th>
                                 <th>Petugas</th>
+                                <th>Status</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -59,7 +70,21 @@
                                 <td><?= htmlspecialchars($p['jumlah'] ?? '-') ?></td>
                                 <td><?= htmlspecialchars($p['catatan'] ?? '-') ?></td>
                                 <td><?= htmlspecialchars($p['petugas'] ?? 'Admin') ?></td>
-                                <td><a href="<?= BASE_URL ?>/pemasokan/detail?id=<?= (int)$p['id'] ?>" class="link">Lihat</a></td>
+                                <td>
+                                    <?php if (($p['status'] ?? 'aktif') === 'dibatalkan'): ?>
+                                        <span style="color:#991b1b;background:#fee2e2;padding:4px 8px;border-radius:4px;font-size:12px;">Dibatalkan</span>
+                                    <?php else: ?>
+                                        <span style="color:#166534;background:#dcfce7;padding:4px 8px;border-radius:4px;font-size:12px;">Aktif</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <div style="display:flex;gap:6px;">
+                                        <a href="<?= BASE_URL ?>/pemasokan/detail?id=<?= (int)$p['id'] ?>" class="link">Lihat</a>
+                                        <?php if (($p['status'] ?? 'aktif') === 'aktif'): ?>
+                                            <a href="#modal-batalkan-<?= (int)$p['id'] ?>" class="btn-delete">Batalkan</a>
+                                        <?php endif; ?>
+                                    </div>
+                                </td>
                             </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
@@ -72,6 +97,24 @@
         </div>
     </main>
 </div>
+
+<?php if (!empty($data['pemasokan'])): ?>
+    <?php foreach ($data['pemasokan'] as $p): ?>
+    <?php if (($p['status'] ?? 'aktif') === 'aktif'): ?>
+    <div class="modal" id="modal-batalkan-<?= (int)$p['id'] ?>">
+        <div class="modal-box">
+            <a href="#" class="close">&times;</a>
+            <h2>Batalkan Pemasokan</h2>
+            <p>Yakin ingin membatalkan transaksi pemasokan ini? Stok barang terkait akan dikurangi kembali secara otomatis.</p>
+            <div style="display:flex;gap:10px;justify-content:flex-end;">
+                <a href="#" class="btn-secondary">Kembali</a>
+                <a href="<?= BASE_URL ?>/pemasokan/batalkan?id=<?= (int)$p['id'] ?>" class="btn-delete" style="padding:9px 16px;">Ya, Batalkan</a>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
 <?php require_once ROOT . '/views/layout/footer.php'; ?>
 </body>
 </html>
