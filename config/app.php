@@ -1,34 +1,22 @@
 <?php
 
-define('APP_NAME', 'StockMate');
-define('APP_VERSION', '1.0.0');
+define('ROOT', __DIR__);
 
-if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
-    $scheme = 'https';
-} else {
-    $scheme = 'http';
-}
+require_once ROOT . '/config/app.php';        
 
-if (isset($_SERVER['HTTP_HOST'])) {
-    $host = $_SERVER['HTTP_HOST'];
-} else {
-    $host = 'localhost';
-}
+require_once ROOT . '/config/connection.php';   
 
-if (isset($_SERVER['SCRIPT_NAME'])) {
-    $scriptDir = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])), '/');
-} else {
-    $scriptDir = '';
-}
+require_once ROOT . '/models/User.php';
+require_once ROOT . '/models/Barang.php';
+require_once ROOT . '/models/Supplier.php';
+require_once ROOT . '/models/Pemasokan.php';
+require_once ROOT . '/models/StockOut.php';
 
-if ($scriptDir === '' || $scriptDir === '/') {
-    $basePath = '';
-} else {
-    $basePath = $scriptDir;
-}
+require_once ROOT . '/controllers/AuthController.php';
+require_once ROOT . '/controllers/DashboardController.php';
+require_once ROOT . '/controllers/BarangController.php';
+require_once ROOT . '/controllers/SupplierController.php';
+require_once ROOT . '/controllers/PemasokanController.php';
+require_once ROOT . '/controllers/LaporanController.php';
 
-define('BASE_URL', $scheme . '://' . $host . $basePath);
-
-date_default_timezone_set('Asia/Jakarta');
-
-session_start();
+require_once ROOT . '/helpers/Router.php';
