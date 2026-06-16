@@ -1,10 +1,10 @@
 <?php
 
-define('ROOT', __DIR__);
+if (!defined('ROOT')) {
+	define('ROOT', dirname(__DIR__));
+}
 
-require_once ROOT . '/config/app.php';        
-
-require_once ROOT . '/config/connection.php';   
+require_once ROOT . '/config/connection.php';
 
 require_once ROOT . '/models/User.php';
 require_once ROOT . '/models/Barang.php';
