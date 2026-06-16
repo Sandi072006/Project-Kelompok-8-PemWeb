@@ -166,7 +166,14 @@
 
         <?php if (!empty($_GET['error'])): ?>
             <div class="alert-error">
-                <?php echo ($_GET['error'] == 1) ? 'Username dan password tidak boleh kosong.' : 'Username atau password salah.'; ?>
+                <?php 
+                // Catatan untuk pemula: Mengecek jenis error yang dikirim lewat URL
+                if ($_GET['error'] == 1) {
+                    echo 'Username dan password tidak boleh kosong.';
+                } else {
+                    echo 'Username atau password salah.';
+                }
+                ?>
             </div>
         <?php endif; ?>
 
