@@ -31,10 +31,10 @@
                 <div class="card-body">
                     <form action="<?= BASE_URL ?>/admin/barang/simpan" method="POST">
                         <div class="form-grid">
-                            <div class="form-group">
-                                <label>Kode Barang</label>
-                                <input type="text" name="kode" placeholder="cth. BRG001" required>
-                            </div>
+                        <div class="form-group">
+                            <label>Kode Barang</label>
+                            <input type="text" value="<?= htmlspecialchars($data['kode_otomatis'] ?? 'Otomatis') ?>" readonly style="background-color:#f8fafc;color:#64748b;cursor:not-allowed;">
+                        </div>
                             <div class="form-group">
                                 <label>Nama Barang</label>
                                 <input type="text" name="nama" placeholder="cth. Beras Premium 5kg" required>
@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Stok Awal</label>
-                                <input type="number" name="stok" value="0" min="0" required>
+                                <input type="number" value="0" readonly style="background-color:#f8fafc;color:#64748b;cursor:not-allowed;">
                             </div>
                             <div class="form-group">
                                 <label>Satuan</label>
