@@ -5,7 +5,6 @@ class BarangController {
 
     public function index() {
         AuthController::cekLogin();
-        
         $search   = isset($_GET['search']) ? trim($_GET['search']) : '';
         $kategori = isset($_GET['kategori']) ? trim($_GET['kategori']) : '';
         
@@ -13,7 +12,6 @@ class BarangController {
         $data['kategori_list'] = Barang::getKategoriList();
         $data['search']        = $search;
         $data['kategori']      = $kategori;
-        
         $data['stock_out'] = StockOut::getAll();
         
         $data['stock_out_error']   = isset($_SESSION['stock_out_error']) ? $_SESSION['stock_out_error'] : '';
@@ -38,7 +36,6 @@ class BarangController {
 
     public function indexAdmin() {
         AuthController::cekAdmin();
-        
         $search   = isset($_GET['search']) ? trim($_GET['search']) : '';
         $kategori = isset($_GET['kategori']) ? trim($_GET['kategori']) : '';
         
