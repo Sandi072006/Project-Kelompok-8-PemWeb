@@ -1,22 +1,18 @@
 <?php
 
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
+
 if (!defined('ROOT')) {
 	define('ROOT', dirname(__DIR__));
 }
 
-require_once ROOT . '/config/connection.php';
-
-require_once ROOT . '/models/User.php';
-require_once ROOT . '/models/Barang.php';
-require_once ROOT . '/models/Supplier.php';
-require_once ROOT . '/models/Pemasokan.php';
-require_once ROOT . '/models/StockOut.php';
-
-require_once ROOT . '/controllers/AuthController.php';
-require_once ROOT . '/controllers/DashboardController.php';
-require_once ROOT . '/controllers/BarangController.php';
-require_once ROOT . '/controllers/SupplierController.php';
-require_once ROOT . '/controllers/PemasokanController.php';
-require_once ROOT . '/controllers/LaporanController.php';
-
-require_once ROOT . '/helpers/Router.php';
+if (!defined('BASE_URL')) {
+	$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
+	$base_url = $protocol . $_SERVER['HTTP_HOST'];
+	$request_uri = $_SERVER['REQUEST_URI'];
+	$script_name = $_SERVER['SCRIPT_NAME'];
+	$base_url .= str_replace(basename($script_name), '', $script_name);
+	define('BASE_URL', rtrim($base_url, '/'));
+}
