@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /stockmate/
+
+# Serve static assets directly
+RewriteRule ^assets/(.*)$ assets/$1 [L,NC]
+
+# Serve files from public folder if they exist there
+RewriteRule ^(.*\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot))$ public/$1 [L,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
