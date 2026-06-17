@@ -137,9 +137,45 @@
                     </div>
                 </div>
                 <div class="box">
-                    <h3>Pemasokan Terbaru</h3>
-                    <p class="empty">Belum ada pemasokan</p>
-                </div>
+                <h3>Pemasokan Terbaru</h3>
+
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Barang</th>
+                                <th>Jumlah</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php if (!empty($data['pemasokan_terbaru'])): ?>
+                            <?php foreach ($data['pemasokan_terbaru'] as $p): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($p['tanggal'] ?? '-') ?></td>
+                                    <td>
+                                        <?= htmlspecialchars($p['kode_barang'] ?? '-') ?> -
+                                        <?= htmlspecialchars($p['nama_barang'] ?? '-') ?>
+                                    </td>
+                                    <td>
+                                        <?= (int)($p['jumlah'] ?? 0) ?>
+                                        <?= htmlspecialchars($p['satuan'] ?? '') ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= BASE_URL ?>/admin/pemasokan/detail?id=<?= (int)$p['id'] ?>" class="link">
+                                            Lihat
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="5" style="text-align:center;" class="empty">
+                                    Belum ada pemasokan
+                                </td>
+                            </tr>
+                        <?php endif; ?>
             </div>
 
         </div>
