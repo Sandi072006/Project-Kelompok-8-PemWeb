@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /stockmate/
+RewriteBase /Project-Kelompok-8-PemWeb/
 
 # Serve static assets directly
 RewriteRule ^assets/(.*)$ assets/$1 [L,NC]
